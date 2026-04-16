@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ガレア前橋は、挑戦したい人が集まるコミュニティスペース。最初の一歩を伴走します。群馬県前橋市・JR前橋駅徒歩8分。">
+<title>GALYEA 前橋 — 最初の一歩を伴走します</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Bebas+Neue&family=Shippori+Mincho+B1:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+:root{
+  --blk:#0C0C0C;--off:#111;--wh:#F5F0E8;
+  --lime:#C8E040;--rust:#B8522A;
+  --mid:rgba(245,240,232,.55);--line:rgba(245,240,232,.1);
+  --disp:'Bebas Neue',sans-serif;
+  --serif:'Shippori Mincho B1',serif;
+  --sans:'Noto Sans JP',sans-serif;
+}
+body{font-family:var(--sans);font-weight:300;background:var(--blk);color:var(--wh);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0 5vw;height:64px;transition:background .4s}
+.nav.s{background:rgba(12,12,12,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--disp);font-size:22px;letter-spacing:.08em}
+.logo em{color:var(--lime);font-style:normal}
+.nlinks{display:flex;gap:28px;align-items:center}
+.nl{font-size:12px;letter-spacing:.12em;color:rgba(245,240,232,.5);transition:color .2s}
+.nl:hover{color:var(--wh)}
+.ncta{padding:8px 20px;background:var(--lime);color:var(--blk);font-size:12px;font-weight:700;letter-spacing:.1em;transition:opacity .2s,transform .2s}
+.ncta:hover{opacity:.88;transform:translateY(-1px)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{display:block;width:24px;height:1.5px;background:var(--wh);transition:all .3s}
+.burger.o span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+.burger.o span:nth-child(2){opacity:0}
+.burger.o span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mm{position:fixed;inset:0;z-index:190;background:var(--blk);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:36px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mm.o{opacity:1;pointer-events:auto}
+.mml{font-family:var(--disp);font-size:clamp(36px,9vw,56px);letter-spacing:.06em;transition:color .2s}
+.mml:hover{color:var(--lime)}
+
+/* ── HERO ── */
+.hero{position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:brightness(.42);animation:hzoom 14s ease-in-out infinite alternate}
+@keyframes hzoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,.95) 0%,rgba(12,12,12,.38) 50%,transparent 78%),linear-gradient(to right,rgba(12,12,12,.35) 0%,transparent 55%)}
+.hero-c{position:relative;padding:0 5vw 64px;max-width:1000px}
+.htag{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.45em;color:rgba(245,240,232,.38);margin-bottom:18px}
+.htag::before{content:'';width:28px;height:1px;background:var(--lime)}
+.hh1{font-family:var(--disp);font-size:clamp(68px,12vw,160px);line-height:.9;letter-spacing:.02em;margin-bottom:8px}
+.hh1 .li{color:var(--lime)}
+.hcatch{font-family:var(--serif);font-size:clamp(15px,2vw,21px);font-weight:600;letter-spacing:.06em;color:rgba(245,240,232,.72);margin-bottom:38px;line-height:1.65}
+.hcatch em{color:var(--lime);font-style:normal}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap}
+.bp{padding:15px 38px;background:var(--lime);color:var(--blk);font-size:14px;font-weight:700;letter-spacing:.1em;transition:transform .2s,box-shadow .2s}
+.bp:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(200,224,64,.32)}
+.bg{padding:14px 28px;border:1.5px solid rgba(245,240,232,.28);font-size:14px;letter-spacing:.08em;transition:border-color .2s}
+.bg:hover{border-color:var(--wh)}
+.hscroll{position:absolute;bottom:28px;right:5vw;writing-mode:vertical-rl;display:flex;align-items:center;gap:10px;font-size:9px;letter-spacing:.4em;color:rgba(245,240,232,.28)}
+.hsl{width:1px;height:44px;background:linear-gradient(to bottom,var(--lime),transparent);animation:sl 2.4s ease-in-out infinite}
+@keyframes sl{0%{transform:scaleY(0);transform-origin:top;opacity:0}50%{transform:scaleY(1);transform-origin:top;opacity:1}100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
+
+/* ── MARQUEE STRIP ── */
+.strip{background:var(--lime);overflow:hidden;height:64px;display:flex;align-items:center;position:relative}
+.strip::before,.strip::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.strip::before{left:0;background:linear-gradient(to right,var(--lime),transparent)}
+.strip::after{right:0;background:linear-gradient(to left,var(--lime),transparent)}
+.mq-track{display:flex;align-items:center;white-space:nowrap;animation:mq 40s linear infinite;will-change:transform}
+.mq-track:hover{animation-play-state:paused}
+.mq-item{display:inline-flex;align-items:center;padding:0 32px;font-size:clamp(13px,1.5vw,17px);color:var(--blk);letter-spacing:.04em;flex-shrink:0}
+@keyframes mq{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+/* フォントバリエーション */
+.mq-f1{font-family:'Shippori Mincho B1',serif;font-weight:800}
+.mq-f2{font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,2vw,22px);letter-spacing:.1em}
+.mq-f3{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(12px,1.3vw,15px);letter-spacing:.12em}
+.mq-f4{font-family:'Shippori Mincho B1',serif;font-weight:400;font-style:italic}
+.mq-f5{font-family:'Noto Sans JP',sans-serif;font-weight:300;font-size:clamp(13px,1.5vw,17px);letter-spacing:.06em}
+
+/* ── ABOUT ── */
+.about{background:var(--off);padding:100px 5vw}
+.ai{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto}
+.aphotos{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ap{overflow:hidden}
+.ap img{width:100%;height:100%;object-fit:cover;filter:brightness(.85);transition:transform .7s,filter .4s}
+.ap:hover img{transform:scale(1.04);filter:brightness(.95)}
+.ap:first-child{grid-row:span 2;aspect-ratio:3/4}
+.ap:not(:first-child){aspect-ratio:4/3}
+.stag{font-size:10px;letter-spacing:.5em;color:rgba(245,240,232,.3);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.stag::before{content:'';width:22px;height:1px;background:var(--lime)}
+.sh2{font-family:var(--serif);font-size:clamp(26px,4vw,46px);font-weight:800;line-height:1.25;letter-spacing:.03em;margin-bottom:20px}
+.slead{font-size:15px;line-height:2.1;color:var(--mid);margin-bottom:28px}
+.atags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.at{padding:5px 13px;border:1px solid rgba(245,240,232,.15);font-size:11px;color:rgba(245,240,232,.45);letter-spacing:.06em}
+
+/* ── ACTIVITIES ── */
+.acts{background:var(--blk);padding:100px 5vw;position:relative;overflow:hidden}
+.acts::before{content:'挑戦';position:absolute;right:-2vw;top:50%;transform:translateY(-50%);font-family:var(--disp);font-size:28vw;color:rgba(245,240,232,.022);line-height:1;pointer-events:none}
+.ach{max-width:1100px;margin:0 auto 60px}
+.agrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1100px;margin:0 auto}
+.acard{background:var(--off);padding:40px 30px 36px;position:relative;overflow:hidden;transition:background .3s}
+.acard:hover{background:#1A1A1A}
+.acard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.acard:hover::before{transform:scaleX(1)}
+.anum{font-family:var(--disp);font-size:80px;color:rgba(245,240,232,.055);line-height:1;margin-bottom:6px}
+.aicon{font-size:30px;margin-bottom:16px;display:block}
+.aen{font-size:10px;letter-spacing:.3em;color:var(--lime);margin-bottom:12px;display:block}
+.aname{font-family:var(--serif);font-size:clamp(17px,2vw,22px);font-weight:800;line-height:1.3;margin-bottom:14px;letter-spacing:.02em}
+.abadge{display:inline-block;padding:4px 11px;background:rgba(200,224,64,.1);border:1px solid rgba(200,224,64,.22);color:var(--lime);font-size:11px;letter-spacing:.08em;margin-bottom:16px}
+.awip{display:inline-block;padding:4px 11px;background:rgba(184,82,42,.13);border:1px solid rgba(184,82,42,.28);color:var(--rust);font-size:11px;letter-spacing:.1em;margin-bottom:16px}
+.adesc{font-size:14px;line-height:2;color:var(--mid);margin-bottom:24px}
+.alink{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.1em;color:var(--lime);border-bottom:1px solid rgba(200,224,64,.28);padding-bottom:2px;transition:gap .2s}
+.alink:hover{gap:12px}
+
+/* ── PHOTO STRIP ── */
+.pstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:320px}
+.pi{overflow:hidden}
+.pi img{width:100%;height:100%;object-fit:cover;filter:brightness(.68) grayscale(.15);transition:transform .7s,filter .4s}
+.pi:hover img{transform:scale(1.06);filter:brightness(.9) grayscale(0)}
+
+/* ── VOICE ── */
+.voice{background:var(--off);padding:100px 5vw}
+.vi{max-width:900px;margin:0 auto}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:48px}
+.vc{background:var(--blk);padding:26px;border-left:2px solid var(--lime)}
+.vq{font-family:var(--serif);font-size:38px;line-height:.6;color:var(--lime);opacity:.35;display:block;margin-bottom:10px}
+.vt{font-family:var(--serif);font-size:clamp(14px,1.8vw,17px);font-weight:600;line-height:1.75;margin-bottom:14px}
+.vn{font-size:12px;color:rgba(245,240,232,.35);letter-spacing:.1em}
+
+/* ── CTA ── */
+.cta{background:var(--lime);padding:80px 5vw;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'GO';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--disp);font-size:40vw;color:rgba(12,12,12,.055);line-height:1;pointer-events:none}
+.ctai{position:relative}
+.ctaey{font-size:10px;letter-spacing:.5em;color:rgba(12,12,12,.4);margin-bottom:18px}
+.ctah{font-family:var(--disp);font-size:clamp(48px,9vw,104px);color:var(--blk);line-height:.92;letter-spacing:.03em;margin-bottom:16px}
+.ctas{font-family:var(--serif);font-size:clamp(15px,2vw,20px);font-weight:600;color:rgba(12,12,12,.6);margin-bottom:44px}
+.ccards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:780px;margin:0 auto 44px}
+.cc{background:rgba(12,12,12,.1);padding:20px 16px;border:1.5px solid transparent;transition:all .2s;display:block}
+.cc:hover{background:rgba(12,12,12,.18);border-color:rgba(12,12,12,.22);transform:translateY(-3px)}
+.ccicon{font-size:26px;margin-bottom:9px}
+.ccname{font-size:13px;font-weight:700;color:var(--blk);margin-bottom:4px;letter-spacing:.04em}
+.ccsub{font-size:11px;color:rgba(12,12,12,.5)}
+.btnblk{display:inline-block;padding:17px 52px;background:var(--blk);color:var(--lime);font-size:14px;font-weight:700;letter-spacing:.14em;transition:transform .2s,box-shadow .2s}
+.btnblk:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.3)}
+
+/* ── ACCESS ── */
+.access{background:var(--blk);display:grid;grid-template-columns:1fr 1fr;gap:0}
+.ainfo{padding:80px 5vw}
+.amap{min-height:360px;position:relative;overflow:hidden}
+.amap iframe{width:100%;height:100%;border:none;filter:brightness(.72) contrast(1.1) grayscale(.55)}
+.alist{margin-top:28px;display:flex;flex-direction:column;gap:0}
+.alrow{display:flex;gap:20px;padding:13px 0;border-bottom:1px solid var(--line)}
+.alrow:last-child{border-bottom:none}
+.albl{font-size:10px;letter-spacing:.28em;color:rgba(245,240,232,.32);width:58px;flex-shrink:0;padding-top:2px}
+.aval{font-size:14px;color:rgba(245,240,232,.78);line-height:1.7}
+.snsrow{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.snsbtn{display:flex;align-items:center;gap:7px;padding:9px 16px;border:1px solid var(--line);font-size:12px;color:rgba(245,240,232,.45);letter-spacing:.07em;transition:all .2s}
+.snsbtn:hover{border-color:var(--wh);color:var(--wh)}
+.snsbtn svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
+
+/* ── FOOTER ── */
+footer{background:var(--off);padding:24px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line)}
+.flogo{font-family:var(--disp);font-size:17px;letter-spacing:.08em;color:rgba(245,240,232,.35)}
+.flogo em{color:rgba(200,224,64,.45);font-style:normal}
+.fcopy{font-size:11px;color:rgba(245,240,232,.2);letter-spacing:.06em}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+.rl{opacity:0;transform:translateX(-26px);transition:opacity .8s ease,transform .8s ease}
+.rl.on{opacity:1;transform:translateX(0)}
+.rr{opacity:0;transform:translateX(26px);transition:opacity .8s ease,transform .8s ease}
+.rr.on{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .ai{grid-template-columns:1fr;gap:48px}
+  .aphotos{order:-1}
+  .agrid{grid-template-columns:1fr;gap:8px}
+  .ccards{grid-template-columns:1fr}
+  .access{grid-template-columns:1fr}
+  .amap{min-height:280px}
+  .pstrip{grid-template-columns:1fr 1fr;height:auto}
+  .pi{aspect-ratio:4/3}
+  .vgrid{grid-template-columns:1fr}
+  .strip{flex-wrap:wrap}
+  .si{min-width:40%}
+}
+@media(max-width:768px){
+  .nlinks{display:none}
+  .burger{display:flex}
+  .about,.acts,.voice{padding:72px 5vw}
+  .ainfo{padding:56px 5vw}
+  .hh1{font-size:clamp(58px,15vw,100px)}
+  .hscroll{display:none}
+  footer{flex-direction:column;align-items:flex-start;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="nav">
+  <a href="#" class="logo">GALYEA <em>前橋</em></a>
+  <div class="nlinks">
+    <a href="#about" class="nl">ガレアとは</a>
+    <a href="#activities" class="nl">活動内容</a>
+    <a href="#access" class="nl">アクセス</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfs-XUT5llP8tUeB0WXkZwbWCIRKaoPs7k902DW-FMJPmCRmg/viewform" target="_blank" class="ncta">コンタクト</a>
+  </div>
+  <div class="burger" id="burger" onclick="toggleM()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mm" id="mm">
+  <a class="mml" href="#about" onclick="toggleM()">ガレアとは</a>
+  <a class="mml" href="#activities" onclick="toggleM()">活動内容</a>
+  <a class="mml" href="#access" onclick="toggleM()">アクセス</a>
+  <a class="mml" href="https://docs.google.com/forms/d/e/1FAIpQLSfs-XUT5llP8tUeB0WXkZwbWCIRKaoPs7k902DW-FMJPmCRmg/viewform" target="_blank" style="color:var(--lime)">コンタクト →</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-bg">
+    <img src="http://galyea.space.fieldworksensei.com/wp-content/uploads/2025/03/1733814088326-1024x683.jpg" alt="ガレア前橋" loading="eager">
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <h1 class="hh1">挑戦<br>する<br><span class="li">場所</span></h1>
+    <p class="hcatch">最初の一歩を、<em>伴走します。</em></p>
+    <div class="hbtns">
+      <a href="#activities" class="bp">活動を見る</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfs-XUT5llP8tUeB0WXkZwbWCIRKaoPs7k902DW-FMJPmCRmg/viewform" target="_blank" class="bg">コンタクトする</a>
+    </div>
+  </div>
+  <div class="hscroll"><span>SCROLL</span><div class="hsl"></div></div>
+</div>
+
+<!-- ── MARQUEE STRIP ── -->
+<div class="strip" aria-hidden="true">
+  <div class="mq-track"><span class="mq-item mq-f1">夢を語り合える場がほしい</span><span class="mq-item mq-f2">多世代交流がしたい</span><span class="mq-item mq-f3">商品開発がしたい</span><span class="mq-item mq-f4">ボランティア団体を立ち上げたい</span><span class="mq-item mq-f5">地域活性をテーマに起業がしたい</span><span class="mq-item mq-f1">発信できる場所を探している</span><span class="mq-item mq-f2">挑戦仲間に出会いたい</span><span class="mq-item mq-f3">アイデアを形にしたい</span><span class="mq-item mq-f4">前橋から何かを始めたい</span><span class="mq-item mq-f5">一歩を踏み出す勇気がほしい</span><span class="mq-item mq-f1">夢を語り合える場がほしい</span><span class="mq-item mq-f2">多世代交流がしたい</span><span class="mq-item mq-f3">商品開発がしたい</span><span class="mq-item mq-f4">ボランティア団体を立ち上げたい</span><span class="mq-item mq-f5">地域活性をテーマに起業がしたい</span><span class="mq-item mq-f1">発信できる場所を探している</span><span class="mq-item mq-f2">挑戦仲間に出会いたい</span><span class="mq-item mq-f3">アイデアを形にしたい</span><span class="mq-item mq-f4">前橋から何かを始めたい</span><span class="mq-item mq-f5">一歩を踏み出す勇気がほしい</span></div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section class="about" id="about">
+  <div class="ai">
+    <div class="aphotos rl">
+      <div class="ap"><img src="http://galyea.space.fieldworksensei.com/wp-content/uploads/2025/03/1733814067755-1024x683.jpg" alt="ガレア前橋の空間" loading="lazy"></div>
+      <div class="ap"><img src="http://galyea.space.fieldworksensei.com/wp-content/uploads/2025/02/160987_0-1024x683.jpg" alt="コワーキングスペース" loading="lazy"></div>
+      <div class="ap"><img src="http://galyea.space.fieldworksensei.com/wp-content/uploads/2025/03/1733814023657-1024x683.jpg" alt="集まる様子" loading="lazy"></div>
+    </div>
+    <div class="rr">
+      <div class="stag">About</div>
+      <h2 class="sh2">挑戦したい人が<br>集まる場所</h2>
+      <p class="slead">
+        ガレア前橋は、群馬県前橋市にある築50年の空き家をリノベーションしたコミュニティスペースです。<br><br>
+        「やってみたい」という気持ちを持つ人が集まり、互いの挑戦をシェアし、刺激し合う場所です。<br><br>
+        一人で抱えていたアイデアが、ここで動き出す。
+      </p>
+      <div class="atags">
+        <span class="at">コワーキングスペース</span>
+        <span class="at">月1交流会</span>
+        <span class="at">Podcast収録</span>
+        <span class="at">年中無休</span>
+        <span class="at">前橋市内</span>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfs-XUT5llP8tUeB0WXkZwbWCIRKaoPs7k902DW-FMJPmCRmg/viewform" target="_blank" class="bp" style="display:inline-block;font-size:13px;padding:13px 28px">見学を申し込む</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ACTIVITIES ══ -->
+<section class="acts" id="activities">
+  <div class="ach">
+    <div class="stag rv">Activities</div>
+    <h2 class="sh2 rv d1">ガレアが提供する<br>3つの挑戦の場</h2>
+    <p class="slead rv d2">「挑戦したいけど、どこから始めたらいいかわからない」<br>そんなあなたのために、3つの入り口を用意しています。</p>
+  </div>
+  <div class="agrid">
+
+    <!-- 01 -->
+    <div class="acard rv d1">
+      <div class="anum">01</div>
+      <span class="aicon">🗣</span>
+      <span class="aen">MONTHLY MEETUP</span>
+      <h3 class="aname">ガレア月1交流会</h3>
+      <div class="abadge">参加費 500円</div>
+      <p class="adesc">
+        毎月1回、挑戦したいことをシェアする交流会。<br><br>
+        「こんなことやってみたい」をただ話すだけでいい。話す相手が変わると、アイデアが動き始める。<br><br>
+        開催日程は前月にSNSで告知します。
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfs-XUT5llP8tUeB0WXkZwbWCIRKaoPs7k902DW-FMJPmCRmg/viewform" target="_blank" class="alink">参加を申し込む <span>→</span></a>
+    </div>
+
+    <!-- 02 -->
+    <div class="acard rv d2">
+      <div class="anum">02</div>
+      <span class="aicon">🎙</span>
+      <span class="aen">PODCAST</span>
+      <h3 class="aname">マエバシ<br>アンダーグラウンド</h3>
+      <div class="abadge">発信の場を提供</div>
+      <p class="adesc">
+        やりたいことを発信する場の提供。<br><br>
+        前橋から挑戦する若者の声を届けるPodcast番組。ガレアが発信の場を提供します。<br><br>
+        あなたの挑戦を、声にしてみませんか。
+      </p>
+      <a href="https://www.instagram.com/m.a.g_teten/" target="_blank" class="alink">Instagramで聴く <span>→</span></a>
+    </div>
+
+    <!-- 03 -->
+    <div class="acard rv d3">
+      <div class="anum">03</div>
+      <span class="aicon">📱</span>
+      <span class="aen">APP</span>
+      <h3 class="aname">ダイアリーバトン</h3>
+      <div class="awip">開発中</div>
+      <p class="adesc">
+        最初の一歩を踏み出し、継続するためのアプリ。<br><br>
+        挑戦の記録を交換日記形式でシェアし、互いにバトンを渡し合う仕組み。<br><br>
+        仲間の存在が、続ける理由になる。
+      </p>
+      <span class="alink" style="opacity:.45;cursor:default">リリース準備中 <span>—</span></span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PHOTO STRIP ── -->
+<div class="pstrip">
+  <div class="pi"><img src="http://galyea.space.fieldworksensei.com/wp-content/uploads/2024/11/LINE_ALBUM_20241026%E6%A4%85%E5%AD%90%E3%81%A5%E3%81%8F%E3%82%8A_241107_2-1024x768.jpg" alt="ガレアでの活動" loading="lazy"></div>
+  <div class="pi"><img src="http://galyea.space.fieldworksensei.com/wp-content/uploads/2025/02/160986_0-1024x683.jpg" alt="ガレアの空間" loading="lazy"></div>
+  <div class="pi"><img src="http://galyea.space.fieldworksensei.com/wp-content/uploads/2025/03/1733814018312-1024x683.jpg" alt="集まる人たち" loading="lazy"></div>
+  <div class="pi"><img src="http://galyea.space.fieldworksensei.com/wp-content/uploads/2025/03/IMG_20241215_100504-768x1024.jpg" alt="ガレア前橋" loading="lazy"></div>
+</div>
+
+<!-- ══ VOICE ══ -->
+<section class="voice">
+  <div class="vi">
+    <div class="stag rv">Voice</div>
+    <h2 class="sh2 rv d1">ここに来た人たちの声</h2>
+    <div class="vgrid">
+      <div class="vc rv d1"><span class="vq">"</span><div class="vt">「やりたいことがある」と話したら、誰も否定しなかった。それだけで、もう一歩踏み出せた気がした。</div><div class="vn">20代・前橋市在住</div></div>
+      <div class="vc rv d2"><span class="vq">"</span><div class="vt">一人でずっと考えてたことを話したら、「やってみれば？」って言ってくれた人がいた。それが全部の始まりだった。</div><div class="vn">28歳・会社員</div></div>
+      <div class="vc rv d3"><span class="vq">"</span><div class="vt">500円で、自分と似た温度の人に会える。こんな場所が前橋にあるとは思ってなかった。</div><div class="vn">19歳・大学生</div></div>
+      <div class="vc rv d4"><span class="vq">"</span><div class="vt">ガレアで話してから3ヶ月。気づいたら動いていた。始めようとしていたのか、気づいたら始まってたのか、もうわからない。</div><div class="vn">32歳・フリーランス</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta">
+  <div class="ctai">
+    <div class="ctaey">JOIN US</div>
+    <h2 class="ctah">最初の<br>一歩、<br>ここから。</h2>
+    <p class="ctas">挑戦したいなら、まずここへ。</p>
+    <div class="ccards">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfs-XUT5llP8tUeB0WXkZwbWCIRKaoPs7k902DW-FMJPmCRmg/viewform" target="_blank" class="cc">
+        <div class="ccicon">🗣</div>
+        <div class="ccname">月1交流会に参加する</div>
+        <div class="ccsub">参加費500円・申込フォームから</div>
+      </a>
+      <a href="https://www.instagram.com/m.a.g_teten/" target="_blank" class="cc">
+        <div class="ccicon">🎙</div>
+        <div class="ccname">Podcastを聴く</div>
+        <div class="ccsub">マエバシアンダーグラウンド</div>
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfs-XUT5llP8tUeB0WXkZwbWCIRKaoPs7k902DW-FMJPmCRmg/viewform" target="_blank" class="cc">
+        <div class="ccicon">📍</div>
+        <div class="ccname">スペースを見学する</div>
+        <div class="ccsub">見学申込みフォームから</div>
+      </a>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfs-XUT5llP8tUeB0WXkZwbWCIRKaoPs7k902DW-FMJPmCRmg/viewform" target="_blank" class="btnblk">まずコンタクトしてみる</a>
+  </div>
+</section>
+
+<!-- ══ ACCESS ══ -->
+<div class="access" id="access">
+  <div class="ainfo">
+    <div class="stag" style="margin-bottom:12px">Access</div>
+    <h2 class="sh2" style="font-size:clamp(22px,3vw,34px);margin-bottom:0">来てみてください。</h2>
+    <div class="alist">
+      <div class="alrow"><div class="albl">住所</div><div class="aval">群馬県前橋市本町2丁目19番4号<br><span style="font-size:12px;color:rgba(245,240,232,.38)">JR前橋駅より徒歩8分</span></div></div>
+      <div class="alrow"><div class="albl">営業</div><div class="aval">9:00 〜 22:00<br><span style="font-size:12px;color:rgba(245,240,232,.38)">年中無休（イベント時は要確認）</span></div></div>
+      <div class="alrow"><div class="albl">料金</div><div class="aval">500円〜<br><span style="font-size:12px;color:rgba(245,240,232,.38)">初回は申込フォームから</span></div></div>
+      <div class="alrow"><div class="albl">駐車場</div><div class="aval" style="font-size:13px;color:rgba(245,240,232,.5)">なし（近隣のコインパーキングをご利用ください）</div></div>
+    </div>
+    <div class="snsrow">
+      <a href="https://www.instagram.com/galyea.real/" target="_blank" class="snsbtn">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @galyea.real
+      </a>
+      <a href="https://www.instagram.com/m.a.g_teten/" target="_blank" class="snsbtn">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Podcast (Instagram)
+      </a>
+    </div>
+  </div>
+  <div class="amap">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3213.1559580876396!2d139.07044457624424!3d36.390213172320155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601ecd6b9765e56b%3A0xa2dd437a1d4bfcce!2z44KZALYA44Kk44Ki5YmN5qmL!5e0!3m2!1sja!2sjp!4v1713400000000!5m2!1sja!2sjp" allowfullscreen loading="lazy" title="ガレア前橋 地図"></iframe>
+  </div>
+</div>
+
+<footer>
+  <div class="flogo">GALYEA <em>前橋</em></div>
+  <div class="fcopy">© GALYEA 前橋 / 株式会社群八</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('s',scrollY>60);
+},{passive:true});
+function toggleM(){
+  document.getElementById('burger').classList.toggle('o');
+  document.getElementById('mm').classList.toggle('o');
+}
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);} });
+},{threshold:.1});
+document.querySelectorAll('.rv,.rl,.rr').forEach(el=>io.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1);
+    const t=document.getElementById(id);
+    if(!t) return;
+    e.preventDefault();
+    document.getElementById('burger').classList.remove('o');
+    document.getElementById('mm').classList.remove('o');
+    setTimeout(()=>t.scrollIntoView({behavior:'smooth'}),80);
+  });
+});
+</script>
+</body>
+</html>
